@@ -55,7 +55,7 @@ eval "apt update"
 eval "apt install initramfs-tools -y"
 eval "apt install lvm2 -y"
 eval "apt autopurge"
-eval "sed -i '\|[[<:blank:642769109628747798>]]/[[<:blank:642769109628747798>]]|s|UUID=\"[^\"]*\"|/dev/mapper/vg00-lv${lv_num}|' /etc/fstab"
+sed -i '\|[[:blank:]]/[[:blank:]]|s|UUID=\"[^\"]*\"|/dev/mapper/vg00-lv${lv_num}|' /etc/fstab
 eval "update-initramfs -u"
 
 if [[ $lv_num == "01" ]]
