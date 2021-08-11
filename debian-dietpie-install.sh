@@ -66,11 +66,11 @@ then
         eval "echo '/dev/mapper/vg00-lv00 none swap sw' >> /etc/fstab";
 fi
 
-echo -e "\033[0;31m[WARNING]:\033[0m Please keep in mind that there is a chance your system might not be able to boot after this $
+echo -e "\033[0;31m[WARNING]:\033[0m Please keep in mind that there is a chance your system might not be able to boot after this"
 
 while true; do
-    echo -e "\033[1;33m[INFO]:\033[0m Reboot now? (y/n)"
-    read yn 
+    echo -e "\033[1;33m[INFO]:\033[0m Reboot now? (y/n)";
+    read yn;
     case $yn in
         [Yy]* ) echo -e "\033[1;33m[INFO]:\033[0m Rebooting now.."; reboot; break;;
         [Nn]* ) echo -e "\033[0;33m[ABORT]:\033[0m Script stopped."; exit;;
