@@ -54,7 +54,7 @@ else
 eval "apt update"
 eval "apt install initramfs-tools -y"
 eval "apt install lvm2 -y"
-eval "apt autopurge"
+eval "apt autopurge -y"
 sed -i '\|[[:blank:]]/[[:blank:]]|s|UUID=\"[^\"]*\"|/dev/mapper/vg00-lv${lv_num}|' /etc/fstab
 eval "update-initramfs -u"
 
@@ -72,7 +72,7 @@ while true; do
     echo -e "\033[1;33m[INFO]:\033[0m Reboot now? (y/n)";
     read yn;
     case $yn in
-        [Yy]* ) echo -e "\033[1;33m[INFO]:\033[0m Rebooting now.."; reboot; break;;
+        [Yy]* ) echo -e "\033[0;32m[INFO]:\033[0m Username: root \n\033[0;32m[INFO]:\033[0m Password: dietpi\n\033[1;33m[INFO]:\033[0m Rebooting now.."; sleep 3; reboot; break;;
         [Nn]* ) echo -e "\033[0;33m[ABORT]:\033[0m Script stopped."; exit;;
         * );;
     esac
