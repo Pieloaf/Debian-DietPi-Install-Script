@@ -11,7 +11,7 @@ Y_INFO="\033[1;33m[INFO]:\033[0m"
 G_INFO="\033[0;32m[INFO]:\033[0m"
 ABORT="\033[0;33m[ABORT]:\033[0m"
 
-# Warnings at the beginning
+# Warnings for the user the beginning
 echo -e "${WARN} This installer is going to remove all data on your system"
 echo -e "${WARN} Make sure to backup any data you want to keep before launching script"
 echo -e "${WARN} Interrupting the script while it is running can break your entire system"
@@ -21,7 +21,7 @@ while true; do
     read yn 
     case $yn in
         [Yy]* ) sleep 1; echo -e "${Y_INFO} Starting now.."; break;;
-        [Nn]* ) echo -e "${ABORT} Script stopped."; exit;;
+        [Nn]* ) echo -e "${ABORT} Script aborted"; exit;;
         * );;
     esac
 done
@@ -49,7 +49,6 @@ cmd_text="blkid | grep -oP '(?<=/dev/mapper/vg00-lv00:).*'"
 cmd_out=$(eval "$cmd_text")
 
 swap="TYPE=\"swap\""
-
 
 if [[ $cmd_out == *$swap ]]
 then 
