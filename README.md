@@ -5,6 +5,6 @@
 
 Those who want to get started quickly and conveniently may install DietPi for ionos/vm using the following commands:
 
-### `wget https://github.com/Pieloaf/DIETPI-SYSTEM-PREP-SCRIPT/blob/main/debian-dietpi-install.sh`
+### `wget https://github.com/Pieloaf/Debian-DietPi-Install-Script/blob/main/debian-dietpi-install.sh`
 ### `chmod +x debian-dietpi-install.sh`
 ### `./debian-dietpi-install.sh`
