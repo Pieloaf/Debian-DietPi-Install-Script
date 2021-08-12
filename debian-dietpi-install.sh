@@ -1,15 +1,23 @@
-# SCRIPT
+#------------------------------------------------------------------------------------------------
+# Optimise current Debian install and prepare DietPi installation for ionos/vm servers
+# Script is made to work for Debian installs on ionos/vm servers
+# but relies heavily on the premade installer from DietPi itself:
+# https://github.com/MichaIng/DietPi/blob/master/PREP_SYSTEM_FOR_DIETPI.sh
+#------------------------------------------------------------------------------------------------
+
 
 WARN="\033[0;31m[WARNING]:\033[0m"
 Y_INFO="\033[1;33m[INFO]:\033[0m"
 G_INFO="\033[0;32m[INFO]:\033[0m"
 ABORT="\033[0;33m[ABORT]:\033[0m"
 
-echo -e "${WARN} This installer is going to remove all data on the system"
-echo -e "${WARN} Make sure to backup any data you want to keep"
+# Warnings at the beginning
+echo -e "${WARN} This installer is going to remove all data on your system"
+echo -e "${WARN} Make sure to backup any data you want to keep before launching script"
+echo -e "${WARN} Interrupting the script while it is running can break your entire system"
 
 while true; do
-    echo -e "${Y_INFO} Start DietPi installation? (y/n)"
+    echo -e "${Y_INFO} Start Custom-DietPi installation? (y/n)"
     read yn 
     case $yn in
         [Yy]* ) sleep 1; echo -e "${Y_INFO} Starting now.."; break;;
@@ -18,14 +26,9 @@ while true; do
     esac
 done
 
-
-echo -e "${Y_INFO} Fetching updates and insalling \"wget\""
-
-eval "apt update"
-eval "apt-get install wget -y"
-
 echo -e "${Y_INFO} Fetching current \"PREP_SYSTEM_FOR_DIETPI.sh\" from GitHub.."
 
+# wget needs to be installed if pulled via curl
 wget https://raw.githubusercontent.com/MichaIng/DietPi/master/PREP_SYSTEM_FOR_DIETPI.sh -O PREP_SYSTEM_FOR_DIETPI.sh
 chmod +x PREP_SYSTEM_FOR_DIETPI.sh
 
@@ -33,11 +36,12 @@ echo -e "${Y_INFO} Starting script: \"PREP_SYSTEM_FOR_DIETPI.sh\""
 
 ./PREP_SYSTEM_FOR_DIETPI.sh
 
+echo -e "${Y_INFO} Cleaning script: \"PREP_SYSTEM_FOR_DIETPI.sh\""
 rm PREP_SYSTEM_FOR_DIETPI.sh
 
 
+# Change to root folder since the installer breaks if youre in specific directories
 echo -e "${Y_INFO} Changing directory to root"
-
 cd /
 
 echo -e "${Y_INFO} Checking for swap partition position.."
@@ -70,14 +74,14 @@ then
         eval "echo '/dev/mapper/vg00-lv00 none swap sw' >> /etc/fstab";
 fi
 
+# Ask user about a reboot and give warning infos
 echo -e "${WARN} Please keep in mind that there is a chance your system might not be able to boot after this"
-
 while true; do
     echo -e "${Y_INFO} Reboot now? (y/n)";
     read yn;
     case $yn in
         [Yy]* ) echo -e "${G_INFO} Username: root \n${G_INFO} Password: dietpi\n${Y_INFO} Rebooting now.."; sleep 3; reboot; break;;
-        [Nn]* ) echo -e "${ABORT} Script stopped."; exit;;
+        [Nn]* ) echo -e "${ABORT} Script aborted"; exit;;
         * );;
     esac
 done
