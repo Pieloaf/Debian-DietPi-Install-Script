@@ -2,7 +2,7 @@
 <!-- markdownlint-disable MD033 -->
 
 # WARNING: 
-This script is based on DIETPI v7.5 DietPi is currently on v8.12. After DIETPI v8.4 the PREP_SYSTEM_FOR_DIETPI.sh script was repalced with a new installer script. I have just updated the github URL to the latest image, use at your own risk.
+This script is based on DIETPI v7.5. DietPi master is currently on v8.12. After DIETPI v8.4 the PREP_SYSTEM_FOR_DIETPI.sh script was repalced with a new installer script. I have just updated the github URL to the latest image, use at your own risk.
 
 ## Install Dietpi for Ionos/vm
  
@@ -21,4 +21,4 @@ Script is made to work for Debian installs on ionos/vm servers but relies heavil
 https://github.com/MichaIng/DietPi/blob/master/PREP_SYSTEM_FOR_DIETPI.sh
 
 ---
-Creds to [Dreez](https://github.com/davbauer) for the idea and working on it with me.
+Credit to [Dreez](https://github.com/davbauer) for the idea and working on it with me.
