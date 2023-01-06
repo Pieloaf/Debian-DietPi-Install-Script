@@ -2,7 +2,7 @@
 # Optimise current Debian install and prepare DietPi installation for ionos/vm servers
 # Script is made to work for Debian installs on ionos/vm servers
 # but relies heavily on the premade installer from DietPi itself:
-# https://github.com/MichaIng/DietPi/blob/master/PREP_SYSTEM_FOR_DIETPI.sh
+# https://github.com/MichaIng/DietPi/blob/master/.build/images/dietpi-installer
 #------------------------------------------------------------------------------------------------
 
 
@@ -26,18 +26,18 @@ while true; do
     esac
 done
 
-echo -e "${Y_INFO} Fetching current \"PREP_SYSTEM_FOR_DIETPI.sh\" from GitHub.."
+echo -e "${Y_INFO} Fetching current \"dietpi-installer.sh\" from GitHub.."
 
 # wget needs to be installed if pulled via curl
-wget https://raw.githubusercontent.com/MichaIng/DietPi/master/PREP_SYSTEM_FOR_DIETPI.sh -O PREP_SYSTEM_FOR_DIETPI.sh
-chmod +x PREP_SYSTEM_FOR_DIETPI.sh
+wget https://github.com/MichaIng/DietPi/blob/master/.build/images/dietpi-installer -O dietpi-installer.sh
+chmod +x dietpi-installer.sh
 
-echo -e "${Y_INFO} Starting script: \"PREP_SYSTEM_FOR_DIETPI.sh\""
+echo -e "${Y_INFO} Starting script: \"dietpi-installer.sh\""
 
-./PREP_SYSTEM_FOR_DIETPI.sh
+./dietpi-installer.sh
 
-echo -e "${Y_INFO} Cleaning script: \"PREP_SYSTEM_FOR_DIETPI.sh\""
-rm PREP_SYSTEM_FOR_DIETPI.sh
+echo -e "${Y_INFO} Cleaning script: \"dietpi-installer.sh\""
+rm dietpi-installer.sh
 
 
 # Change to root folder since the installer breaks if youre in specific directories
