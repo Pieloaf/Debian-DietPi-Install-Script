@@ -1,8 +1,11 @@
 <!-- markdownlint-configure-file { "MD004": { "style": "consistent" } } -->
 <!-- markdownlint-disable MD033 -->
 
-## Install Dietpi for Ionos/vm
+# WARNING: 
+This script is based on DIETPI v7.5 DietPi is currently on v8.12. After DIETPI v8.4 the PREP_SYSTEM_FOR_DIETPI.sh script was repalced with a new installer script. I have just updated the github URL to the latest image, use at your own risk.
 
+## Install Dietpi for Ionos/vm
+ 
 Those who want to get started quickly and conveniently may install DietPi for ionos/vm using the following commands:
 
 `wget https://raw.githubusercontent.com/Pieloaf/Debian-DietPi-Install-Script/main/debian-dietpi-install.sh`
