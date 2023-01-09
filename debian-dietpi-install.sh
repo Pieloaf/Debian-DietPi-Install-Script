@@ -29,7 +29,7 @@ done
 echo -e "${Y_INFO} Fetching current \"dietpi-installer.sh\" from GitHub.."
 
 # wget needs to be installed if pulled via curl
-wget https://github.com/MichaIng/DietPi/blob/master/.build/images/dietpi-installer -O dietpi-installer.sh
+wget https://raw.githubusercontent.com/MichaIng/DietPi/master/.build/images/dietpi-installer -O dietpi-installer.sh
 chmod +x dietpi-installer.sh
 
 echo -e "${Y_INFO} Starting script: \"dietpi-installer.sh\""
